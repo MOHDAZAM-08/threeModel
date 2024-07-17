@@ -1,0 +1,36 @@
+.Home-section {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 10px;
+  }
+  
+  .Home-section.items-end {
+    align-items: flex-end;
+  }
+  
+  .Home-section.items-start {
+    align-items: flex-start;
+  }
+  
+  .Home-content {
+    width: 50%; /* Adjust width as needed */
+    display: flex;
+    justify-content: center;
+  }
+  
+  .Home-content aside {
+    text-align: center;
+  }
+  
+  .Home-content h1 {
+    color: yellow;
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .Home-content p {
+    color: gray;
+  }
+  

@@ -1,24 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import Experience from "./components/Experience";
+import Home from "./components/Home";
+import TwoBox from "./components/TwoBox";
+import ThreeBox from "./components/ThreeBox";
+import FourBox from "./components/FourBox";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <div className="exp">
+        <Experience />
+      </div>
+      <div className="content">
+        <Home />
+        <TwoBox />
+        <ThreeBox />
+        <FourBox />
+      </div>
+    </>
   );
 }
 

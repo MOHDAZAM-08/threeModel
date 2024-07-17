@@ -1,0 +1,23 @@
+.nav{
+    margin: 0;padding: 0;
+    color: black;
+    background-color: rgb(200, 230, 255);
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.navlogo{
+    width: 10%;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.navList{
+    display: flex;
+    justify-content: space-around;
+    width: 70%;
+}
