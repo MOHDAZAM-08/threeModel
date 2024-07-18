@@ -1,10 +1,12 @@
-import React, { useLayoutEffect, useRef } from 'react';
+import React, { useEffect, useLayoutEffect, useRef } from 'react';
 import { useGLTF } from '@react-three/drei';
 import { useThree } from "@react-three/fiber";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
-
+import { Leva, useControls } from 'leva'; 
 gsap.registerPlugin(ScrollTrigger);
+
+
 
 export default function Model(props) {
   const { nodes, materials } = useGLTF('/scene.glb');
@@ -12,155 +14,162 @@ export default function Model(props) {
   const { scene, camera } = useThree();
   const tl = useRef(gsap.timeline());
 
+
+  const controls = useControls({
+    cameraPosition: {
+      value: { x: 0, y: 1.5, z: 5 },
+      step: 0.1,
+    },
+    scenePosition: {
+      value: { x: 0, y: -0.99, z: 0 },
+      step: 0.1,
+    },
+    sceneRotation: {
+      value: { x: 0, y: 0, z: 0 },
+      step: 0.1,
+    },
+  });
+
+  useEffect(() => {
+    camera.position.set(controls.cameraPosition.x, controls.cameraPosition.y, controls.cameraPosition.z);
+  }, [controls.cameraPosition, camera]);
+
+  useEffect(() => {
+    scene.position.set(controls.scenePosition.x, controls.scenePosition.y, controls.scenePosition.z);
+  }, [controls.scenePosition, scene]);
+
+  useEffect(() => {
+    scene.rotation.set(controls.sceneRotation.x, controls.sceneRotation.y, controls.sceneRotation.z);
+  }, [controls.sceneRotation, scene]);
+  
+
  
-  useLayoutEffect(() => {
-    // Initial position adjustments
-    camera.position.set(0, 1.5, 5);
-    scene.position.set(0, -0.99, 0);
-
-    ScrollTrigger.create({});
-
-    tl.current
-      .to(camera.position, {
-        x: 0,
-        y: 1.5,
-        z: 5,
-        scrollTrigger: {
-          trigger: ".Home-section",
-          start: "top bottom",
-          end: "top top",
-          scrub: true,
-          ease: "power1.inOut",
-          immediateRender: false,
-        },
-      })
-      .to(scene.position, {
-        x: -0.10,
-        y: -0.54,
-        z: 0.7,
-        scrollTrigger: {
-          trigger: ".Home-section",
-          start: "top bottom",
-          end: "top top",
-          scrub: true,
-          ease: "power1.inOut",
-          immediateRender: false,
-        },
-      })
-      .to(camera.position, {
-        x: 4,
-        y: 1.5,
-        z: 5,
-        scrollTrigger: {
-          trigger: ".two-section",
-          start: "top bottom",
-          end: "top top",
-          scrub: true,
-          ease: "power1.inOut",
-          immediateRender: false,
-        },
-      })
-      .to(scene.position, {
-        x: 2,
-        y: -0.09,
-        z: 0,
-        scrollTrigger: {
-          trigger: ".two-section",
-          start: "top bottom",
-          end: "top top",
-          scrub: true,
-          ease: "power1.inOut",
-          immediateRender: false,
-        },
-      })
-      .to(camera.position, {
-        x: 9,
-        y: 1,
-        z: 5,
-        scrollTrigger: {
-          trigger: ".Three-section",
-          start: "top bottom",
-          end: "top top",
-          scrub: true,
-          ease: "power1.inOut",
-          immediateRender: false,
-        },
-      })
-      .to(scene.position, {
-        x: 2,
-        y: 0.99,
-        z: 6,
-        scrollTrigger: {
-          trigger: ".Three-section",
-          start: "top bottom",
-          end: "top top",
-          scrub: true,
-          ease: "power1.inOut",
-          immediateRender: false,
-        },
-      })
-      .to(scene.rotation, {
-        y: Math.PI, // 180 degrees in radians
-        scrollTrigger: {
-          trigger: ".Three-section",
-          start: "top center",
-          end: "top top",
-          scrub: true,
-          ease: "power1.inOut",
-          immediateRender: false,
-        },
-      })
-      .to(camera.position, {
-        x: -0.7,
-        y: 10,
-        z: 0,
-        scrollTrigger: {
-          trigger: ".Four-section",
-          start: "top bottom",
-          end: "top top",
-          scrub: true,
-          ease: "power1.inOut",
-          immediateRender: false,
-        },
-      })
-      .to(scene.position, {
-        x: 8,
-        y: 5,
-        z: 0,
-        scrollTrigger: {
-          trigger: ".Four-section",
-          start: "top bottom",
-          end: "top top",
-          scrub: true,
-          ease: "power1.inOut",
-          immediateRender: false,
-        },
-      })
-      .to(scene.scale, {
-        x: 4,
-        y: 4,
-        z: 4,
-        scrollTrigger: {
-          trigger: ".Four-section",
-          start: "top bottom",
-          end: "top top",
-          scrub: true,
-          ease: "power1.inOut",
-          immediateRender: false,
-        },
-      })
-      .to(scene.rotation, {
-        scrollTrigger: {
-          trigger: ".Four-section",
-          start: "top center",
-          end: "top top",
-          scrub: true,
-          ease: "power1.inOut",
-          immediateRender: false,
-        },
-      });
-  }, [camera, scene]);
-
+  // useLayoutEffect(() => {
+  //   // Initial position adjustments
+  //   camera.position.set(0, 1.5, 5);
+  //   scene.position.set(0, -0.99, 0);
+  
+  //   ScrollTrigger.create({});
+  
+  //   tl.current
+  //     .to(camera.position, {
+  //       x: 0,
+  //       y: 1.5,
+  //       z: 5,
+  //       scrollTrigger: {
+  //         trigger: ".Home-section",
+  //         start: "top bottom",
+  //         end: "top top",
+  //         scrub: 1, // Scrub value can be a number for smoother transitions
+  //         ease: "power2.inOut",
+  //       },
+  //     })
+  //     .to(scene.position, {
+  //       x: -0.10,
+  //       y: -0.54,
+  //       z: 0.7,
+  //       scrollTrigger: {
+  //         trigger: ".Home-section",
+  //         start: "top bottom",
+  //         end: "top top",
+  //         scrub: 1,
+  //         ease: "power2.inOut",
+  //       },
+  //     })
+  //     .to(camera.position, {
+  //       x: 4,
+  //       y: 1.5,
+  //       z: 5,
+  //       scrollTrigger: {
+  //         trigger: ".two-section",
+  //         start: "top bottom",
+  //         end: "top top",
+  //         scrub: 1,
+  //         ease: "power2.inOut",
+  //       },
+  //     })
+  //     .to(scene.position, {
+  //       x: 2,
+  //       y: -0.09,
+  //       z: 0,
+  //       scrollTrigger: {
+  //         trigger: ".two-section",
+  //         start: "top bottom",
+  //         end: "top top",
+  //         scrub: 1,
+  //         ease: "power2.inOut",
+  //       },
+  //     })
+  //     // .to(camera.position, {
+  //     //   x: 8,
+  //     //   y: 1,
+  //     //   z: 3.99,
+  //     //   scrollTrigger: {
+  //     //     trigger: ".Three-section",
+  //     //     start: "top bottom",
+  //     //     end: "top top",
+  //     //     scrub: 1,
+  //     //     ease: "power2.inOut",
+  //     //   },
+  //     // })
+  //     .to(scene.position, {
+  //       x: 3.5,
+  //       y: 0.99,
+  //       z: 2,
+  //       scrollTrigger: {
+  //         trigger: ".Three-section",
+  //         start: "top bottom",
+  //         end: "top top",
+  //         scrub: 1,
+  //         ease: "power2.inOut",
+  //       },
+  //     })
+  //     .to(scene.rotation, {
+  //       y: 1.09, // 180 degrees in radians
+  //       scrollTrigger: {
+  //         trigger: ".Three-section",
+  //         start: "top center",
+  //         end: "top top",
+  //         scrub: 1,
+  //         ease: "power2.inOut",
+  //       },
+  //     })
+  //     .to(camera.position, {
+  //       x: 0,
+  //       y: 10,
+  //       z: 0,
+  //       scrollTrigger: {
+  //         trigger: ".Four-section",
+  //         start: "top bottom",
+  //         end: "top top",
+  //         scrub: 1,
+  //         ease: "power2.inOut",
+  //       },
+  //     })
+  //     .to(scene.position, {
+  //       x: 0,
+  //       y: 5.9,
+  //       z: 0,
+  //       scrollTrigger: {
+  //         trigger: ".Four-section",
+  //         start: "top bottom",
+  //         end: "top top",
+  //         scrub: 1,
+  //         ease: "power2.inOut",
+  //       },
+  //     })
+  //     .to(scene.rotation, {
+  //       y: 0,
+  //       scrollTrigger: {
+  //         trigger: ".Four-section",
+  //         start: "top center",
+  //         end: "top top",
+  //         scrub: 1,
+  //         ease: "power2.inOut",
+  //       },
+  //     });
+  // }, [camera, scene]);
+  
 
   return (
     <group ref={laptop}>

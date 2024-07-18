@@ -1,0 +1,32 @@
+.Three-section {
+  height: 100vh;
+  display: flex;
+  align-items: start;
+  justify-content: center;
+  /* background-image: linear-gradient(rgba(0, 0, 0, 0.804), rgba(0, 0, 0, 0.877)), url(../assets/apple\ watch\ 6.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  z-index: -10; This can be adjusted based on the desired stacking context */
+}
+
+.three-content {
+  padding: 30px;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  color: white;
+  text-align: center;
+  z-index: -20000;
+
+}
+
+.three-content h1 {
+  font-size: 5rem;
+}
+
+.three-content p {
+  font-size: 3rem;
+  color: rgb(255, 0, 0);
+}

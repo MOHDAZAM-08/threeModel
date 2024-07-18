@@ -1,23 +1,17 @@
 .nav{
-    margin: 0;padding: 0;
     color: black;
-    background-color: rgb(200, 230, 255);
+    background-color: rgb(255, 255, 255);
     height: auto;
     display: flex;
     align-items: center;
     justify-content: space-around;
-}
-
-.navlogo{
-    width: 10%;
-    font-size: 1rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    height: 28px;
 }
 
 .navList{
     display: flex;
+    padding: 0;
+    margin: 0;
     justify-content: space-around;
-    width: 70%;
+    width: 100%;
 }
