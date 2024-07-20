@@ -1,5 +1,8 @@
 
 /* The Experience component should be fixed and cover the entire viewport */
+body::-webkit-scrollbar {
+  display: none; /* For Chrome, Safari, and Opera */
+}
 .exp {
   position: fixed;
   top: 0;

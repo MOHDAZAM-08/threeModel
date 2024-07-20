@@ -10,6 +10,8 @@ export default function Navbar() {
           <p>about</p>
           <p>contect</p>
           <p>feature</p>
+          <p>store</p>
+          <p>phone</p>
         </div>
       </div>
     </>

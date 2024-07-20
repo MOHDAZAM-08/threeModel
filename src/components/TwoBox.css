@@ -13,22 +13,23 @@
 
 .two-content {
   padding: 30px;
-  width: 100%;
+  margin-left: 60px;
   display: flex;
   justify-content: start;
   align-items: start;
   color: white;
   position: relative;
-  width: 70%;
+  width: 40%;
   z-index: -2; /* Ensure this is higher than the .two-section */
 }
 
 
 .two-content h1 {
-  font-size: 5rem;
+  font-size: 4rem;
+  margin: 0;padding: 0;
 }
 
 .two-content p {
-  font-size: 3rem;
+  font-size: 2rem;
   color: rgb(255, 0, 0);
 }

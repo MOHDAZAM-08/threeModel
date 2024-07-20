@@ -7,10 +7,10 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.804), rgba(0, 0, 0, 0.877)), url(./assets/bg4.jpg);
+  background-image: linear-gradient(rgba(0, 0, 0, 0.918), rgba(0, 0, 0, 0.977)), url(./assets/file.png);
   background-position: center;
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: contain;
   background-attachment: fixed;
   position: relative;
   z-index: -10; /* This can be adjusted based on the desired stacking context */

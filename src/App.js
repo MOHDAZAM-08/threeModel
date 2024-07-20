@@ -23,7 +23,7 @@ function App() {
         <ThreeBox />
         <FourBox />
       </div>
-      <About />
+      {/* <About /> */}
     </>
   );
 }

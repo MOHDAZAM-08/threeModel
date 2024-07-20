@@ -13,9 +13,9 @@ const Experience = () => {
   return (
     <div style={{ width: "100vw", height: "100vh" }}>
       <Canvas flat linear>
-        <directionalLight intensity={2}  position={[-2,3,-4]} />
+        <directionalLight intensity={1}  position={[-2,3,-4]} />
         {/* <ambientLight intensity={6}/> */}
-        <OrbitControls enableZoom={false} />
+        <OrbitControls enableZoom={false}/>
         <Suspense fallback={null}>
           <Cartoon />
         </Suspense>

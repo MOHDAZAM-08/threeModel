@@ -21,7 +21,7 @@ export default function Home(props) {
         <aside ref={textRef}>
           <p >Apple Watch</p>
           <div>
-          <div  className='btn'>To wear it is to love it</div>
+          {/* <div  className='btn'>To wear it is to love it</div> */}
           </div>
         </aside>
       </div>
