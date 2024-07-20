@@ -52,32 +52,21 @@ export default function Model(props) {
 
 
 
-
   useLayoutEffect(() => {
-    const ambientLight = new THREE.AmbientLight(0x404040); // Soft white light
-    const spotLight = new THREE.SpotLight(0xffffff, 1); // Strong white light
+    const ambientLight = new THREE.AmbientLight(0x404040);
+    const spotLight = new THREE.SpotLight(0xffffff, 1);
     spotLight.position.set(10, 20, 10);
     spotLight.castShadow = true;
-    
-    // Enable shadow map
+
     scene.add(ambientLight);
     scene.add(spotLight);
 
-    // Adjust shadow properties
-    spotLight.shadow.mapSize.width = 248; // Default is 512
-    spotLight.shadow.mapSize.height = 248; // Default is 512
-    spotLight.shadow.camera.near = 0.06; // Default is 0.5
-    spotLight.shadow.camera.far = 500; // Default is 500
+    spotLight.shadow.mapSize.width = 512; 
+    spotLight.shadow.mapSize.height = 512;
+    spotLight.shadow.camera.near = 0.1;
+    spotLight.shadow.camera.far = 200;
 
-    // Initial position adjustments
-    // camera.position.set(-10.15, -1.25, 0.45);
-    // scene.position.set(-3.70, -1.84, 0.20);
-    // scene.rotation.set(-0.95, -0.10, 0.10);
-  
-    ScrollTrigger.create({
-      invalidateOnRefresh: true
-    });
-  
+    // Combine animations into a single timeline with grouped ScrollTriggers
     tl.current
       .to(camera.position, {
         x: -10.15,
@@ -87,7 +76,7 @@ export default function Model(props) {
           trigger: ".Home-section",
           start: "top bottom",
           end: "top top",
-          scrub: 1, // Scrub value can be a number for smoother transitions
+          scrub: 1,
           ease: "power2.inOut",
           immediateRender: false
         }
@@ -104,7 +93,7 @@ export default function Model(props) {
           ease: "power2.inOut",
           immediateRender: false
         }
-      })
+      }, 0) // Use a position value to ensure animations run in sync
       .to(scene.rotation, {
         x: -0.95,
         y: -0.10,
@@ -117,7 +106,7 @@ export default function Model(props) {
           ease: "power2.inOut",
           immediateRender: false
         }
-      })
+      }, 0) // Start at the same time as previous animations
       .to(camera.position, {
         x: -10.30,
         y: -1.95,
@@ -132,7 +121,7 @@ export default function Model(props) {
         }
       })
       .to(scene.position, {
-        x:  -4.15,
+        x: -4.15,
         y: -1.69,
         z: 5.20,
         scrollTrigger: {
@@ -143,7 +132,7 @@ export default function Model(props) {
           ease: "power2.inOut",
           immediateRender: false
         }
-      })
+      }, 0) // Synchronize with the previous camera position animation
       .to(scene.rotation, {
         x: -0.80,
         y: -2.25,
@@ -156,7 +145,7 @@ export default function Model(props) {
           ease: "power2.inOut",
           immediateRender: false
         }
-      })
+      }, 0)
       .to(camera.position, {
         x: -10.00,
         y: -0.25,
@@ -182,7 +171,7 @@ export default function Model(props) {
           ease: "power2.inOut",
           immediateRender: false
         }
-      })
+      }, 0)
       .to(scene.rotation, {
         x: 0.50,
         y: -2.00,
@@ -195,7 +184,7 @@ export default function Model(props) {
           ease: "power2.inOut",
           immediateRender: false
         }
-      })
+      }, 0)
       .to(camera.position, {
         x: -10.00,
         y: 0.60,
@@ -206,31 +195,9 @@ export default function Model(props) {
           end: "top top",
           scrub: 1,
           ease: "power2.inOut",
-          immediateRender: false,
+          immediateRender: false
         }
       })
-      // .to(camera.position, {
-      //   x: -3.80,
-      //   y: -0.19,
-      //   z: -1.75,
-      //   scrollTrigger: {
-      //     trigger: ".about",
-      //     start: "top bottom",
-      //     end: "top top",
-      //     scrub: 1,
-      //     ease: "power2.inOut",
-      //     immediateRender: false,
-      //     onEnter: () => {
-      //       if (modelRef.current) {
-      //         modelRef.current.visible = false;
-      //       }
-      //     },
-      //     onLeaveBack: () => {
-      //       if (modelRef.current) {
-      //         modelRef.current.visible = true;
-      //       }}
-      //   }
-      // })
       .to(scene.position, {
         x: -3.80,
         y: -0.19,
@@ -243,7 +210,7 @@ export default function Model(props) {
           ease: "power2.inOut",
           immediateRender: false
         }
-      })
+      }, 0)
       .to(scene.rotation, {
         x: -0.55,
         y: -2.15,
@@ -254,41 +221,11 @@ export default function Model(props) {
           end: "top top",
           scrub: 1,
           ease: "power2.inOut",
-          immediateRender: false,
-          onLeaveBack: () => {
-            if (modelRef.current) {
-              modelRef.current.visible = true;
-            }
-          }
+          immediateRender: false
         }
-      });
-      // .set(camera.position, {
-      //   x: -20.50,
-      //   y: -2.85,
-      //   z: -4.95,
-      //   onComplete: () => {
-      //     camera.position.set(-20.50, -2.85, -4.95);
-      //   }
-      // })
-      // .set(scene.position, {
-      //   x: -15.15,
-      //   y: -2.24,
-      //   z: -4.70,
-      //   onComplete: () => {
-      //     scene.position.set(-15.15, -2.24, -4.70);
-      //   }
-      // })
-      // .set(scene.rotation, {
-      //   x: -0.75,
-      //   y: 3.90,
-      //   z: -0.80,
-      //   onComplete: () => {
-      //     scene.rotation.set(-0.75, 3.90, -0.80);
-      //   }
-      // });
-  
+      }, 0);
+
   }, [camera, scene]);
-  
   
   
 
