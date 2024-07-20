@@ -70,9 +70,9 @@ export default function Model(props) {
     spotLight.shadow.camera.far = 500; // Default is 500
 
     // Initial position adjustments
-    camera.position.set(-10.15, -1.25, 0.45);
-    scene.position.set(-3.70, -1.84, 0.20);
-    scene.rotation.set(-0.95, -0.10, 0.10);
+    // camera.position.set(-10.15, -1.25, 0.45);
+    // scene.position.set(-3.70, -1.84, 0.20);
+    // scene.rotation.set(-0.95, -0.10, 0.10);
   
     ScrollTrigger.create({
       invalidateOnRefresh: true
