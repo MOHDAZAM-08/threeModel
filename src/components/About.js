@@ -20,7 +20,7 @@ export default function About() {
         <div className="heart">
         <div className="content">
             <p id='para'>Sleep</p>
-            <h1>Get a closer look at your shut-eye.</h1>
+            <h1>Get a closer look at your shut-eyes .</h1>
             </div>
             <div className="Img">
                 <img src={img2} alt="" />

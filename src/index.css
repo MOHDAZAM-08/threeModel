@@ -15,6 +15,9 @@ body {
   position: relative;
   z-index: -10; /* This can be adjusted based on the desired stacking context */
 }
+html {
+  scroll-behavior: smooth;
+}
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',

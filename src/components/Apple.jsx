@@ -78,7 +78,7 @@ export default function Model(props) {
           end: "top top",
           scrub: 1,
           ease: "power2.inOut",
-          immediateRender: false
+          immediateRender: false,
         }
       })
       .to(scene.position, {
